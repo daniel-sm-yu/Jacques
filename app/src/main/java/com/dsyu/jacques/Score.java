@@ -1,9 +1,18 @@
 package com.dsyu.jacques;
 
-public class Score {
+public class Score extends Ace{
 
     private String playerScore = "0";
+
     private String cpuScore = "0";
+
+    public String getPlayerScore() {
+        return playerScore;
+    }
+
+    public String getCpuScore() {
+        return cpuScore;
+    }
 
     public String addPlayerScore(int num) {
         if (num > 10) {
@@ -25,6 +34,16 @@ public class Score {
         }
         cpuScore = String.valueOf(Integer.parseInt(cpuScore) + num);
         return cpuScore;
+    }
+
+    public boolean playerGameOver(boolean hasAce) {
+        if (hasAce) {
+            playerScore =  String.valueOf(Integer.parseInt(playerScore) - 10);
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 }
 
