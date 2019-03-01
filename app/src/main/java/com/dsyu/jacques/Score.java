@@ -45,5 +45,15 @@ public class Score extends Ace{
             return true;
         }
     }
+
+    public boolean cpuGameOver(boolean hasAce) {
+        if (hasAce) {
+            cpuScore =  String.valueOf(Integer.parseInt(cpuScore) - 10);
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
 }
 
