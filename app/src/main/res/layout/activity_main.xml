@@ -66,7 +66,7 @@
         app:srcCompat="@drawable/jack" />
 
     <TextView
-        android:id="@+id/cpuTotalTextView"
+        android:id="@+id/cpuScoreTextView"
         android:layout_width="65dp"
         android:layout_height="0dp"
         android:layout_marginStart="24dp"
@@ -74,14 +74,14 @@
         android:layout_marginTop="32dp"
         android:fontFamily="cursive"
         android:gravity="center"
-        android:text="17"
+        android:text="0"
         android:textColor="@color/red"
         android:textSize="50sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cpuCardsLayout" />
 
     <TextView
-        android:id="@+id/playerTotalTextView"
+        android:id="@+id/playerScoreTextView"
         android:layout_width="65dp"
         android:layout_height="0dp"
         android:layout_marginEnd="24dp"
@@ -101,6 +101,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:background="@color/black"
+        android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -154,6 +155,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:background="@color/black"
+        android:gravity="center"
         android:orientation="horizontal"
         android:weightSum="4"
         app:layout_constraintBottom_toTopOf="@+id/textView"
@@ -163,48 +165,48 @@
         <ImageButton
             android:id="@+id/card1"
             android:layout_width="wrap_content"
-            android:maxWidth="185dp"
             android:layout_height="wrap_content"
-            android:maxHeight="260dp"
             android:layout_weight="1"
             android:adjustViewBounds="true"
             android:background="@color/black"
+            android:maxWidth="185dp"
+            android:maxHeight="260dp"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/cardback" />
 
         <ImageButton
             android:id="@+id/card2"
             android:layout_width="wrap_content"
-            android:maxWidth="185dp"
             android:layout_height="wrap_content"
-            android:maxHeight="260dp"
             android:layout_weight="1"
             android:adjustViewBounds="true"
             android:background="@color/black"
+            android:maxWidth="185dp"
+            android:maxHeight="260dp"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/cardback" />
 
         <ImageButton
             android:id="@+id/card3"
             android:layout_width="wrap_content"
-            android:maxWidth="185dp"
             android:layout_height="wrap_content"
-            android:maxHeight="260dp"
             android:layout_weight="1"
             android:adjustViewBounds="true"
             android:background="@color/black"
+            android:maxWidth="185dp"
+            android:maxHeight="260dp"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/cardback" />
 
         <ImageButton
             android:id="@+id/card4"
             android:layout_width="wrap_content"
-            android:maxWidth="185dp"
             android:layout_height="wrap_content"
-            android:maxHeight="260dp"
             android:layout_weight="1"
             android:adjustViewBounds="true"
             android:background="@color/black"
+            android:maxWidth="185dp"
+            android:maxHeight="260dp"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/cardback" />
 
