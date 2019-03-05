@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import static android.widget.Toast.LENGTH_SHORT;
 import static android.widget.Toast.makeText;
@@ -23,12 +22,13 @@ public class MainActivity extends AppCompatActivity {
     private TextView playerScore, cpuScore;
     boolean playerStand, cpuStand;
     final CardFace cardFace = new CardFace();
-    final CardValue cardValues = new CardValue();
+    final CardValue cardValue = new CardValue();
     final Score score = new Score();
     final Ace ace = new Ace();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.e(TAG, "CREATE -----------------------------");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         card6 = findViewById(R.id.card6);
         card7 = findViewById(R.id.card7);
         card8 = findViewById(R.id.card8);
-        jacquesButton = findViewById(R.id.jacquesButton);
+        jacquesButton = findViewById(R.id.jacquesButton );
         playerScore = findViewById(R.id.playerScoreTextView);
         cpuScore = findViewById(R.id.cpuScoreTextView);
 
@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         jacquesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.e(TAG, "PLAYER STAND");
                 playerStand = true;
                 if (!playerHand[0]) {
                     card1.setImageResource(R.drawable.black);
@@ -60,11 +61,13 @@ public class MainActivity extends AppCompatActivity {
                 if (!playerHand[2]) {
                     card3.setImageResource(R.drawable.black);
                     playerHand[2] = true;
+
                 }
                 if (!playerHand[3]) {
                     card4.setImageResource(R.drawable.black);
                     playerHand[3] = true;
                 }
+                cpuTakeTurn();
             }
         });
 
@@ -73,11 +76,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!playerHand[0]) {
-                    card1.setImageResource(cardFace.getCardFace(cardValues.getValue(1)));
+                    card1.setImageResource(cardFace.getCardFace( cardValue.getValue(1)));
                     playerHand[0] = true;
-                    playerScore.setText(score.addPlayerScore(cardValues.getValue(1)));
-                    ace.setPlayerAce(cardValues.getValue(1));
-                    if (Integer.valueOf(score.getPlayerScore()) > 21) {
+                    playerScore.setText(score.addPlayerScore( cardValue.getValue(1)));
+                    ace.setPlayerAce( cardValue.getValue(1));
+                    if (score.getPlayerScoreInt() > 21) {
                         if (score.playerGameOver(ace.usePlayerAce())) {
 
                             makeText(MainActivity.this, "GAME OVER", LENGTH_SHORT).show();
@@ -95,11 +98,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!playerHand[1]) {
-                    card2.setImageResource(cardFace.getCardFace(cardValues.getValue(2)));
+                    card2.setImageResource(cardFace.getCardFace( cardValue.getValue(2)));
                     playerHand[1] = true;
-                    playerScore.setText(score.addPlayerScore(cardValues.getValue(2)));
-                    ace.setPlayerAce(cardValues.getValue(2));
-                    if (Integer.valueOf(score.getPlayerScore()) > 21) {
+                    playerScore.setText(score.addPlayerScore( cardValue.getValue(2)));
+                    ace.setPlayerAce( cardValue.getValue(2));
+                    if (score.getPlayerScoreInt() > 21) {
                         if (score.playerGameOver(ace.usePlayerAce())) {
 
                             makeText(MainActivity.this, "GAME OVER", LENGTH_SHORT).show();
@@ -117,11 +120,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!playerHand[2]) {
-                    card3.setImageResource(cardFace.getCardFace(cardValues.getValue(3)));
+                    card3.setImageResource(cardFace.getCardFace( cardValue.getValue(3)));
                     playerHand[2] = true;
-                    playerScore.setText(score.addPlayerScore(cardValues.getValue(3)));
-                    ace.setPlayerAce(cardValues.getValue(3));
-                    if (Integer.valueOf(score.getPlayerScore()) > 21) {
+                    playerScore.setText(score.addPlayerScore( cardValue.getValue(3)));
+                    ace.setPlayerAce( cardValue.getValue(3));
+                    if (score.getPlayerScoreInt() > 21) {
                         if (score.playerGameOver(ace.usePlayerAce())) {
 
                             makeText(MainActivity.this, "GAME OVER", LENGTH_SHORT).show();
@@ -139,14 +142,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!playerHand[3]) {
-                    card4.setImageResource(cardFace.getCardFace(cardValues.getValue(4)));
+                    card4.setImageResource(cardFace.getCardFace( cardValue.getValue(4)));
                     playerHand[3] = true;
-                    playerScore.setText(score.addPlayerScore(cardValues.getValue(4)));
-                    ace.setPlayerAce(cardValues.getValue(4));
-                    if (Integer.valueOf(score.getPlayerScore()) > 21) {
+                    playerScore.setText(score.addPlayerScore( cardValue.getValue(4)));
+                    ace.setPlayerAce( cardValue.getValue(4));
+                    if (score.getPlayerScoreInt() > 21) {
                         if (score.playerGameOver(ace.usePlayerAce())) {
 
                             makeText(MainActivity.this, "GAME OVER", LENGTH_SHORT).show();
+
                         } else {
                             playerScore.setText(score.getPlayerScore());
                         }
@@ -161,101 +165,104 @@ public class MainActivity extends AppCompatActivity {
 
         // gets CPU to take a turn
         private void cpuTakeTurn () {
-            // delays execution by a few seconds
-            Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    // Start of cpuTakeTurn code
-                    int randomCpuCardNum = (int) (Math.random()*4);
-                    while (cpuHand[randomCpuCardNum]) {
-                        randomCpuCardNum = (int) Math.random()*4;
-                    };
-                    cpuAddCard((randomCpuCardNum+5));
-
-
-
-
-
-
-                    // End of cpuTakeTurn code
+            if (cpuStand) {
+                return;
+            }
+            else if (score.getCpuScoreInt() < score.getPlayerScoreInt()) {
+                cpuAddCard();
+            }
+            else if (score.getCpuScoreInt() >= score.getPlayerScoreInt() && playerStand) {
+                cpuStand();
+            }
+            else if (score.getCpuScoreInt() < 12) {
+                cpuAddCard();
+            }
+            else if (score.getCpuScoreInt() < 14) {
+                if((int) Math.floor(Math.random())*5 != 0) {
+                    cpuAddCard();
                 }
-            }, 1200);
+            }
+            else if (score.getCpuScoreInt() < 16) {
+                if((int) Math.floor(Math.random())*2 == 0) {
+                    cpuAddCard();
+                }
+            }
+            else if (score.getCpuScoreInt() < 18) {
+                if((int) Math.floor(Math.random())*4 == 0) {
+                    cpuAddCard();
+                }
+            }
+            else {
+                cpuStand();
+            }
+
         }
 
         // gets CPU to add a card to hand
-        private void cpuAddCard (int cardNum){
-            if (cardNum == 5) {
-                    card5.setImageResource(cardFace.getCardFace(cardValues.getValue(5)));
-                    cpuHand[0] = true;
-                    cpuScore.setText(score.addCpuScore(cardValues.getValue(5)));
-                    ace.setCpuAce(cardValues.getValue(5));
-                    if (Integer.valueOf(score.getCpuScore()) > 21) {
-                        if (score.cpuGameOver(ace.useCpuAce())) {
+        private void cpuAddCard(){
+        // delays execution by a few seconds
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Log.e( TAG, "CARD ADDED" );
 
-                            makeText(MainActivity.this, "GAME OVER", LENGTH_SHORT).show();
+                int randomCpuCardNum = (int) (Math.random() * 4);
 
-                        } else {
-                            cpuScore.setText(score.getCpuScore());
-                        }
-                    }
-            }
+                while (cpuHand[randomCpuCardNum]) {
+                    randomCpuCardNum = (int) Math.floor( Math.random() * 4);
+                    Log.e(TAG, "LOOP");
+                }
 
-            else if (cardNum == 6) {
-                if (!cpuHand[1]) {
-                    card6.setImageResource(cardFace.getCardFace(cardValues.getValue(6)));
-                    cpuHand[1] = true;
-                    cpuScore.setText(score.addCpuScore(cardValues.getValue(6)));
-                    ace.setCpuAce(cardValues.getValue(6));
-                    if (Integer.valueOf(score.getCpuScore()) > 21) {
-                        if (score.cpuGameOver(ace.useCpuAce())) {
+                randomCpuCardNum += 5;
 
-                            makeText(MainActivity.this, "GAME OVER", LENGTH_SHORT).show();
+                switch (randomCpuCardNum) {
+                    case 5:
+                        card5.setImageResource( cardFace.getCardFace( cardValue.getValue(randomCpuCardNum) ) ); break;
+                    case 6:
+                        card6.setImageResource( cardFace.getCardFace( cardValue.getValue(randomCpuCardNum) ) ); break;
+                    case 7:
+                        card7.setImageResource( cardFace.getCardFace( cardValue.getValue(randomCpuCardNum) ) ); break;
+                    case 8:
+                        card8.setImageResource( cardFace.getCardFace( cardValue.getValue(randomCpuCardNum) ) ); break;
+                }
 
-                        } else {
-                            cpuScore.setText(score.getCpuScore());
-                        }
+
+                cpuHand[randomCpuCardNum - 5] = true;
+                cpuScore.setText( score.addCpuScore( cardValue.getValue(randomCpuCardNum) ) );
+                ace.setCpuAce( cardValue.getValue(randomCpuCardNum) );
+                if (score.getCpuScoreInt() > 21) {
+                    if (score.cpuGameOver( ace.useCpuAce() )) {
+
+                            makeText( MainActivity.this, "GAME OVER", LENGTH_SHORT ).show();
+
+                    } else {
+                        cpuScore.setText( score.getCpuScore() );
                     }
                 }
             }
+        }, 1200);
+    }
 
-            else if (cardNum == 7) {
-                if (!cpuHand[2]) {
-                    card7.setImageResource(cardFace.getCardFace(cardValues.getValue(7)));
-                    cpuHand[2] = true;
-                    cpuScore.setText(score.addCpuScore(cardValues.getValue(7)));
-                    ace.setCpuAce(cardValues.getValue(7));
-                    if (Integer.valueOf(score.getCpuScore()) > 21) {
-                        if (score.cpuGameOver(ace.useCpuAce())) {
-
-                            makeText(MainActivity.this, "GAME OVER", LENGTH_SHORT).show();
-
-                        } else {
-                            cpuScore.setText(score.getCpuScore());
-                        }
-                    }
-                }
-            }
-
-            else if (cardNum == 8) {
-                if (!cpuHand[3]) {
-                    card8.setImageResource(cardFace.getCardFace(cardValues.getValue(8)));
-                    cpuHand[3] = true;
-                    cpuScore.setText(score.addCpuScore(cardValues.getValue(8)));
-                    ace.setCpuAce(cardValues.getValue(8));
-                    if (Integer.valueOf(score.getCpuScore()) > 21) {
-                        if (score.cpuGameOver(ace.useCpuAce())) {
-
-                            makeText(MainActivity.this, "GAME OVER", LENGTH_SHORT).show();
-
-                        } else {
-                            cpuScore.setText(score.getCpuScore());
-                        }
-                    }
-                }
-            }
-
-
+    private void cpuStand() {
+        Log.e(TAG, "CPU STAND");
+        cpuStand = true;
+        if (!cpuHand[0]) {
+            card5.setImageResource(R.drawable.black);
+            cpuHand[0] = true;
         }
+        if (!cpuHand[1]) {
+            card6.setImageResource(R.drawable.black);
+            cpuHand[1] = true;
+        }
+        if (!cpuHand[2]) {
+            card7.setImageResource(R.drawable.black);
+            cpuHand[2] = true;
+        }
+        if (!cpuHand[3]) {
+            card8.setImageResource(R.drawable.black);
+            cpuHand[3] = true;
+        }
+    }
 
 }

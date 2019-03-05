@@ -36,6 +36,14 @@ public class Score extends Ace{
         return cpuScore;
     }
 
+    public int getPlayerScoreInt() {
+        return Integer.parseInt(playerScore);
+    }
+
+    public int getCpuScoreInt() {
+        return Integer.parseInt(cpuScore);
+    }
+
     public boolean playerGameOver(boolean hasAce) {
         if (hasAce) {
             playerScore =  String.valueOf(Integer.parseInt(playerScore) - 10);
