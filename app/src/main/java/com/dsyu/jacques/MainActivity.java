@@ -1,5 +1,7 @@
 package com.dsyu.jacques;
 
+import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,8 +19,7 @@ public class MainActivity extends AppCompatActivity {
                                             public static final String TAG = MainActivity.class.toString();
     private boolean[] playerHand = new boolean[4];
     private boolean[] cpuHand = new boolean[4];
-    private ImageButton card1, card2, card3, card4, card5, card6, card7, card8;
-    private Button jacquesButton;
+    private ImageButton jacquesButton, card1, card2, card3, card4, card5, card6, card7, card8;
     private TextView playerScore, cpuScore;
     boolean playerStand, cpuStand;
     final CardFace cardFace = new CardFace();
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
                     playerHand[3] = true;
                 }
                 cpuTakeTurn();
+                allCardsAdded();
             }
         });
 
@@ -83,13 +85,16 @@ public class MainActivity extends AppCompatActivity {
                     if (score.getPlayerScoreInt() > 21) {
                         if (score.playerGameOver(ace.usePlayerAce())) {
 
-                            makeText(MainActivity.this, "GAME OVER", LENGTH_SHORT).show();
+                            gameOver();
 
                         } else {
                             playerScore.setText(score.getPlayerScore());
                         }
                     }
-                    cpuTakeTurn();
+                    if (score.getPlayerScoreInt() <= 21) {
+                        cpuTakeTurn();
+                        allCardsAdded();
+                    }
                 }
             }
         });
@@ -105,13 +110,16 @@ public class MainActivity extends AppCompatActivity {
                     if (score.getPlayerScoreInt() > 21) {
                         if (score.playerGameOver(ace.usePlayerAce())) {
 
-                            makeText(MainActivity.this, "GAME OVER", LENGTH_SHORT).show();
+                            gameOver();
 
                         } else {
                             playerScore.setText(score.getPlayerScore());
                         }
                     }
-                    cpuTakeTurn();
+                    if (score.getPlayerScoreInt() <= 21) {
+                        cpuTakeTurn();
+                        allCardsAdded();
+                    }
                 }
             }
         });
@@ -127,13 +135,16 @@ public class MainActivity extends AppCompatActivity {
                     if (score.getPlayerScoreInt() > 21) {
                         if (score.playerGameOver(ace.usePlayerAce())) {
 
-                            makeText(MainActivity.this, "GAME OVER", LENGTH_SHORT).show();
+                            gameOver();
 
                         } else {
                             playerScore.setText(score.getPlayerScore());
                         }
                     }
-                    cpuTakeTurn();
+                    if (score.getPlayerScoreInt() <= 21) {
+                        cpuTakeTurn();
+                        allCardsAdded();
+                    }
                 }
             }
         });
@@ -149,56 +160,67 @@ public class MainActivity extends AppCompatActivity {
                     if (score.getPlayerScoreInt() > 21) {
                         if (score.playerGameOver(ace.usePlayerAce())) {
 
-                            makeText(MainActivity.this, "GAME OVER", LENGTH_SHORT).show();
+                            gameOver();
 
                         } else {
                             playerScore.setText(score.getPlayerScore());
                         }
                     }
-                    cpuTakeTurn();
+                    if (score.getPlayerScoreInt() <= 21) {
+                        cpuTakeTurn();
+                        allCardsAdded();
+                    }
                 }
             }
         });
 
     }
+
+        private void allCardsAdded() {
+            int cards = 0;
+            for (int i = 0; i < 4; i++) {
+                if (playerHand[i]) {
+                    cards++;
+                }
+                if (cpuHand[i]) {
+                    cards++;
+                }
+            }
+            if (cards == 8) {
+                gameOver();
+            }
+        }
 // SMART CPU ALGORITHM -----------------------------------------------------------------------------
 
-        // gets CPU to take a turn
+        // Gets CPU to take a turn
         private void cpuTakeTurn () {
-            if (cpuStand) {
-                return;
-            }
-            else if (score.getCpuScoreInt() < score.getPlayerScoreInt()) {
-                cpuAddCard();
-            }
-            else if (score.getCpuScoreInt() >= score.getPlayerScoreInt() && playerStand) {
-                cpuStand();
-            }
-            else if (score.getCpuScoreInt() < 12) {
-                cpuAddCard();
-            }
-            else if (score.getCpuScoreInt() < 14) {
-                if((int) Math.floor(Math.random())*5 != 0) {
+            if (!cpuStand) {
+                if (score.getCpuScoreInt() < score.getPlayerScoreInt()) {
                     cpuAddCard();
+                } else if (score.getCpuScoreInt() >= score.getPlayerScoreInt() && playerStand) {
+                    cpuStand();
+                } else if (score.getCpuScoreInt() < 12) {
+                    cpuAddCard();
+                } else if (score.getCpuScoreInt() < 14) {
+                    if ((int) Math.floor( Math.random() ) * 5 != 0) {
+                        cpuAddCard();
+                    }
+                } else if (score.getCpuScoreInt() < 16) {
+                    if ((int) Math.floor( Math.random() ) * 2 == 0) {
+                        cpuAddCard();
+                    }
+                } else if (score.getCpuScoreInt() < 18) {
+                    if ((int) Math.floor( Math.random() ) * 4 == 0) {
+                        cpuAddCard();
+                    }
+                } else {
+                    cpuStand();
                 }
             }
-            else if (score.getCpuScoreInt() < 16) {
-                if((int) Math.floor(Math.random())*2 == 0) {
-                    cpuAddCard();
-                }
-            }
-            else if (score.getCpuScoreInt() < 18) {
-                if((int) Math.floor(Math.random())*4 == 0) {
-                    cpuAddCard();
-                }
-            }
-            else {
-                cpuStand();
-            }
-
+            allCardsAdded();
         }
 
-        // gets CPU to add a card to hand
+        // Gets CPU to add a card to hand
         private void cpuAddCard(){
         // delays execution by a few seconds
         Handler handler = new Handler();
@@ -206,7 +228,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Log.e( TAG, "CARD ADDED" );
-
+                // selects a card not yet added to cpu hand
                 int randomCpuCardNum = (int) (Math.random() * 4);
 
                 while (cpuHand[randomCpuCardNum]) {
@@ -227,18 +249,18 @@ public class MainActivity extends AppCompatActivity {
                         card8.setImageResource( cardFace.getCardFace( cardValue.getValue(randomCpuCardNum) ) ); break;
                 }
 
-
                 cpuHand[randomCpuCardNum - 5] = true;
                 cpuScore.setText( score.addCpuScore( cardValue.getValue(randomCpuCardNum) ) );
                 ace.setCpuAce( cardValue.getValue(randomCpuCardNum) );
                 if (score.getCpuScoreInt() > 21) {
                     if (score.cpuGameOver( ace.useCpuAce() )) {
 
-                            makeText( MainActivity.this, "GAME OVER", LENGTH_SHORT ).show();
+                            gameOver();
 
                     } else {
                         cpuScore.setText( score.getCpuScore() );
                     }
+
                 }
             }
         }, 1200);
@@ -265,4 +287,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // Used to navigate to the Game Over page
+    private void gameOver() {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+            Intent intent = new Intent(MainActivity.this, GameOverActivity.class);
+            String playerScore = score.getPlayerScore();
+            intent.putExtra(playerScore, "playerScore");
+            String cpuScore = score.getCpuScore();
+            intent.putExtra(cpuScore, "cpuScore");
+            startActivity(intent);
+            }
+        }, 1200);
+    }
 }
