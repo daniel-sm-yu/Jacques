@@ -4,7 +4,103 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/transparent"
     tools:context=".GameOverActivity">
+
+    <LinearLayout
+        android:id="@+id/cpuScoreLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/cpuScoreTextView"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:fontFamily="cursive"
+            android:gravity="center"
+            android:paddingRight="80dp"
+            android:text="20"
+            android:textColor="@color/red"
+            android:textSize="75sp"
+            app:layout_constraintBottom_toBottomOf="@+id/cpuScoreLayout"
+            app:layout_constraintEnd_toEndOf="@+id/cpuScoreLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cpuScoreLayout" />
+
+        <ImageView
+            android:id="@+id/cpuHeartImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="85dp"
+            android:adjustViewBounds="true"
+            android:paddingRight="25dp"
+            android:rotation="15"
+            android:scaleType="fitXY"
+            android:tint="@color/red"
+            app:layout_constraintBottom_toBottomOf="@+id/cpuScoreLayout"
+            app:layout_constraintEnd_toEndOf="@+id/cpuScoreLayout"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toStartOf="@+id/cpuScoreLayout"
+            app:layout_constraintTop_toTopOf="@+id/cpuScoreLayout"
+            app:srcCompat="@drawable/heart" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/playerScoreLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/playAgainButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/playerHeartImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:adjustViewBounds="true"
+            android:paddingLeft="25dp"
+            android:rotation="15"
+            android:scaleType="fitXY"
+            android:tint="@color/red"
+            app:layout_constraintBottom_toTopOf="@+id/playAgainButton"
+            app:layout_constraintEnd_toStartOf="@+id/playerScoreTextView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/heart" />
+
+        <TextView
+            android:id="@+id/playerScoreTextView"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:fontFamily="cursive"
+            android:gravity="center"
+            android:paddingLeft="80dp"
+            android:text="17"
+            android:textColor="@color/red"
+            android:textSize="75sp"
+            app:layout_constraintBottom_toTopOf="@+id/playAgainButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent" />
+    </LinearLayout>
 
     <ImageButton
         android:id="@+id/playAgainButton"
@@ -12,18 +108,56 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:cropToPadding="false"
+        android:maxHeight="80dp"
+        android:scaleType="fitXY"
+        android:tint="@color/red"
+        app:layout_constraintBottom_toTopOf="@+id/playAgainTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/playagain" />
+
+    <TextView
+        android:id="@+id/resultsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:layout_marginBottom="8dp"
-        android:adjustViewBounds="true"
-        android:background="@drawable/black"
-        android:maxHeight="180dp"
-        android:scaleType="fitXY"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="You Lose."
+        android:textColor="@color/red"
+        android:textSize="80sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/playerScoreLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cpuScoreLayout" />
+
+    <TextView
+        android:id="@+id/playAgainTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="cursive"
+        android:text="Play Again"
+        android:textColor="@color/red"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.96"
-        app:srcCompat="@drawable/jack" />
+        app:layout_constraintStart_toStartOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

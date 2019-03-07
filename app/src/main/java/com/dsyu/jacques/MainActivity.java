@@ -294,10 +294,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
             Intent intent = new Intent(MainActivity.this, GameOverActivity.class);
-            String playerScore = score.getPlayerScore();
-            intent.putExtra(playerScore, "playerScore");
-            String cpuScore = score.getCpuScore();
-            intent.putExtra(cpuScore, "cpuScore");
+            int playerScore = score.getPlayerScoreInt();
+            intent.putExtra("playerScore", playerScore);
+            int cpuScore = score.getCpuScoreInt();
+            intent.putExtra("cpuScore", cpuScore);
             startActivity(intent);
             }
         }, 1200);

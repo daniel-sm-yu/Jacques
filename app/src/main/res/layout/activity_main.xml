@@ -19,8 +19,8 @@
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
         android:tint="@color/red"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/jacqueslogo" />
@@ -231,6 +231,7 @@
         android:layout_marginRight="32dp"
         android:layout_marginBottom="24dp"
         android:fontFamily="cursive"
+        android:textStyle="bold"
         android:gravity="center"
         android:text="&quot;Add to your hand by tapping on a card.\nKeep your hand by tapping on me.&quot;\n- Jacques"
         android:textColor="@color/red"

@@ -9,11 +9,16 @@ import android.widget.ImageButton;
 public class GameOverActivity extends AppCompatActivity {
 
     private ImageButton playAgainButton;
+    private int playerScore, cpuScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_game_over );
+
+        Intent intent = getIntent();
+        playerScore = intent.getIntExtra( "playerScore", 0 );
+        cpuScore = intent.getIntExtra( "cpuScore", 0 );
 
         playAgainButton = findViewById( R.id.playAgainButton );
 
