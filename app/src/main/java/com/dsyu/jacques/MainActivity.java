@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     final Score score = new Score();
     final Ace ace = new Ace();
     boolean playerStand;
-    int maxNum = 121;
+    int maxNum = 21;
     int cpuCards = 0;
 
     @Override
