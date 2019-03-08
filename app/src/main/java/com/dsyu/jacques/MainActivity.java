@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     final Score score = new Score();
     final Ace ace = new Ace();
     boolean playerStand;
-    int maxNum = 21;
+    int maxNum = 121;
     int cpuCards = 0;
 
     @Override
@@ -65,9 +65,7 @@ public class MainActivity extends AppCompatActivity {
                     card4.setImageResource(R.drawable.black);
                     playerHand[3] = true;
                 }
-                gameOverCheck();
                 cpuTakeTurn();
-                gameOverCheck();
             }
         });
 
