@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     final CardValue cardValue = new CardValue();
     final Score score = new Score();
     final Ace ace = new Ace();
-    int maxNum = 38;
+    int maxNum = 21;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
