@@ -221,6 +221,9 @@ public class MainActivity extends AppCompatActivity {
                         cpuStand();
                     }
                 }
+                else {
+                    cpuStand();
+                }
             }
             gameOverCheck();
         }
