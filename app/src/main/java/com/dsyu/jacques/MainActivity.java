@@ -88,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
 
                         } else {
                             playerScore.setText(score.getPlayerScore());
-                            cpuTakeTurn();
                         }
                     }
                     if (score.getPlayerScoreInt() <= maxNum) {
@@ -113,7 +112,6 @@ public class MainActivity extends AppCompatActivity {
 
                         } else {
                             playerScore.setText(score.getPlayerScore());
-                            cpuTakeTurn();
                         }
                     }
                     if (score.getPlayerScoreInt() <= maxNum) {
@@ -138,7 +136,6 @@ public class MainActivity extends AppCompatActivity {
 
                         } else {
                             playerScore.setText(score.getPlayerScore());
-                            cpuTakeTurn();
                         }
                     }
                     if (score.getPlayerScoreInt() <= maxNum) {
@@ -163,7 +160,6 @@ public class MainActivity extends AppCompatActivity {
 
                         } else {
                             playerScore.setText(score.getPlayerScore());
-                            cpuTakeTurn();
                         }
                     }
                     if (score.getPlayerScoreInt() <= maxNum) {
