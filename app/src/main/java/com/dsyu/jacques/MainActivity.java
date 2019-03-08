@@ -260,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
                 if (score.getCpuScoreInt() > maxNum) {
                     if (score.cpuGameOver( ace.useCpuAce() )) {
 
-                            gameOverCheck();
+                            gameOver();
 
                     } else {
                         cpuScore.setText( score.getCpuScore() );
