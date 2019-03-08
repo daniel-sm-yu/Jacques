@@ -3,8 +3,6 @@ package com.dsyu.jacques;
 import android.util.Log;
 import android.widget.Toast;
 
-import static com.dsyu.jacques.MainActivity.TAG;
-
 public class Ace {
 
     private boolean playerHasAce;
@@ -41,6 +39,4 @@ public class Ace {
             return false;
         }
     }
-
-
 }
