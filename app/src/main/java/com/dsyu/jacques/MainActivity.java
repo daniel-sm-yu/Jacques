@@ -1,17 +1,14 @@
 package com.dsyu.jacques;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import static android.widget.Toast.LENGTH_SHORT;
 import static android.widget.Toast.makeText;
 import static java.lang.Thread.sleep;
 
@@ -69,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                     card4.setImageResource(R.drawable.black);
                     playerHand[3] = true;
                 }
-                gameOver();
+                gameOverCheck();
                 cpuTakeTurn();
 
             }
@@ -225,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
-            gameOver();
+            gameOverCheck();
         }
 
         // Gets CPU to add a card to hand
@@ -263,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
                 if (score.getCpuScoreInt() > maxNum) {
                     if (score.cpuGameOver( ace.useCpuAce() )) {
 
-                            gameOver();
+                            gameOverCheck();
 
                     } else {
                         cpuScore.setText( score.getCpuScore() );
@@ -307,21 +304,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Used to navigate to the Game Over page
-    private void gameOver() {
+    private void gameOverCheck() {
         if (playerStand && cpuStand) {
-
-            Handler handler = new Handler();
-            handler.postDelayed( new Runnable() {
-                @Override
-                public void run() {
-                    Intent intent = new Intent( MainActivity.this, GameOverActivity.class );
-                    int playerScore = score.getPlayerScoreInt();
-                    intent.putExtra( "playerScore", playerScore );
-                    int cpuScore = score.getCpuScoreInt();
-                    intent.putExtra( "cpuScore", cpuScore );
-                    startActivity( intent );
-                }
-            }, 1200 );
+            gameOver();
         }
+    }
+
+    private void gameOver() {
+        Handler handler = new Handler();
+        handler.postDelayed( new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent( MainActivity.this, GameOverActivity.class );
+                int playerScore = score.getPlayerScoreInt();
+                intent.putExtra( "playerScore", playerScore );
+                int cpuScore = score.getCpuScoreInt();
+                intent.putExtra( "cpuScore", cpuScore );
+                startActivity( intent );
+            }
+        }, 1200 );
     }
 }
