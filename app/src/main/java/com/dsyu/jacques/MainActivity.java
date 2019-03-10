@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import static android.widget.Toast.makeText;
 import static java.lang.Thread.sleep;
@@ -243,11 +244,10 @@ public class MainActivity extends AppCompatActivity {
                 cpuScore.setText( score.addCpuScore( cardValue.getValue(randomCpuCardNum) ) );
                 ace.setCpuAce( cardValue.getValue(randomCpuCardNum) );
                 if (score.getCpuScoreInt() > maxNum) {
-                    if (score.cpuGameOver( ace.useCpuAce() )) {
+                    if (score.cpuGameOver( ace.useCpuAce() ) && cpuCards != 4) {
                             gameOver();
-                    } else {
-                        cpuScore.setText( score.getCpuScore() );
                     }
+                    cpuScore.setText( score.getCpuScore() );
                 }
             }
             }, 1000);
