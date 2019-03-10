@@ -19,7 +19,6 @@ public class CardValue {
         }
     }
 
-
     public int getValue(int cardNum) {
         return cardValues[cardNum-1];
     }
