@@ -7,3 +7,10 @@ Classic rules of Blackjack apply.
 Highest score up to 21 wins.
 Player loses in case of a tie.
 Ace is worth 11 until the score exceeds 21 and is then worth 1 instead.
+
+<img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesInitial.jpg" width="25%">
+<img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesInstruction.jpg" width="25%">
+<img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesMidgame.jpg" width="25%">
+<img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesMidgame2.jpg" width="25%">
+<img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacauesGameOver.jpg" width="25%">
+
