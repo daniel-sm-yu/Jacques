@@ -19,7 +19,7 @@
         android:layout_marginRight="25dp"
         android:layout_marginBottom="32dp"
         android:gravity="center_vertical"
-        android:text="Hit by tapping a bottom card.\n\nStand by tapping the center card.\n\nHighest score up to 21 wins.\n\nExceed 21 and you bust.\n\nTie and you lose.\n\nAll cards are unique."
+        android:text="Hit by tapping a bottom card.\n\nStand by tapping the center card.\n\nFace cards are worth 10.\n\nAce is worth 11 or 1.\n\nHighest score up to 21 wins.\n\nExceed 21 and you bust.\n\nTie and you lose.\n\nAll cards are unique."
         android:textColor="@color/gray"
         android:textSize="20sp"
         app:fontFamily="cursive"

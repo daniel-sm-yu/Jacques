@@ -19,7 +19,7 @@ public class InstructionActivity extends MainActivity {
         int width = displayMetrics.widthPixels;
         int height = displayMetrics.heightPixels;
 
-        getWindow().setLayout( (int)(width * .8), (int)(height * .45) );
+        getWindow().setLayout( (int)(width * .8), (int)(height * .6) );
 
         WindowManager.LayoutParams params = getWindow().getAttributes();
         params.gravity = Gravity.CENTER;
