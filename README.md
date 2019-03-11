@@ -6,7 +6,7 @@ To keep your hand, tap the card at the center of the screen. Doing so will clear
 Classic rules of Blackjack apply. 
 Highest score up to 21 wins.
 The CPU wins in case of a tie.
-Ace is worth 11 until the score exceeds 21. Upon exceeding 21, ace is worth 1 instead.
+Ace is worth 11 until the score exceeds 21. Upon exceeding 21, the ace is worth 1 instead.
 
 <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesInitial.jpg" width="25%">
 <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesInstruction.jpg" width="25%">
