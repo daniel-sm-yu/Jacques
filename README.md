@@ -11,7 +11,7 @@ Ace is worth 11 until the score exceeds 21. Upon exceeding 21, the ace is worth 
 Tap the "?" icon at the upper right corner during the game for a summary of the rules and controls.
 
 <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesInitial.jpg" width="25%">
-<img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesInstruction.jpg" width="25%">
+<img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesInstructions.jpg" width="25%">
 <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesMidgame.jpg" width="25%">
 <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesMidgame2.jpg" width="25%">
 <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacauesGameOver.jpg" width="25%">
