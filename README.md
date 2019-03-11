@@ -6,6 +6,7 @@ To keep your hand, tap the card at the center of the screen. Doing so will clear
 Highest score up to 21 wins.
 Whoever exceeds 21 loses immediately.
 The CPU wins in case of a tie.
+King, Queen and Jack are worth 10.
 Ace is worth 11 until the score exceeds 21. Upon exceeding 21, the ace is worth 1 instead.
 Tap the "?" icon at the upper right corner during the game for a summary of the rules and controls.
 
