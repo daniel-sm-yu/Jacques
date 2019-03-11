@@ -55,8 +55,6 @@
         android:id="@+id/jacquesButton"
         android:layout_width="116dp"
         android:layout_height="166dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:background="@drawable/black"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toTopOf="@+id/playerCardsLayout"
@@ -238,5 +236,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/instructionButton"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:tint="@color/red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/questionmarkicon" />
 
 </android.support.constraint.ConstraintLayout>

@@ -15,14 +15,14 @@ import static java.lang.Thread.sleep;
 
 public class MainActivity extends AppCompatActivity {
 
-    private boolean[] playerHand = new boolean[4];
-    private boolean[] cpuHand = new boolean[4];
-    private ImageButton jacquesButton, card1, card2, card3, card4, card5, card6, card7, card8;
+    private ImageButton jacquesButton, instructionButton, card1, card2, card3, card4, card5, card6, card7, card8;
     private TextView playerScore, cpuScore;
     final CardFace cardFace = new CardFace();
     final CardValue cardValue = new CardValue();
     final Score score = new Score();
     final Ace ace = new Ace();
+    private boolean[] playerHand = new boolean[4];
+    private boolean[] cpuHand = new boolean[4];
     boolean playerStand;
     int maxNum = 21;
     int cpuCards = 0;
@@ -40,9 +40,18 @@ public class MainActivity extends AppCompatActivity {
         card6 = findViewById(R.id.card6);
         card7 = findViewById(R.id.card7);
         card8 = findViewById(R.id.card8);
+        instructionButton = findViewById( R.id.instructionButton );
         jacquesButton = findViewById(R.id.jacquesButton );
         playerScore = findViewById(R.id.playerScoreTextView);
         cpuScore = findViewById(R.id.cpuScoreTextView);
+
+        instructionButton.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent( getApplicationContext(), InstructionActivity.class );
+                startActivity(intent);
+            }
+        } );
 
         // Removes every player card not in player's hand
         jacquesButton.setOnClickListener(new View.OnClickListener() {

@@ -11,10 +11,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".InstructionActivity"
+            android:theme="@style/AppTheme.InstructionPopup">
+        </activity>
         <activity
             android:name=".GameOverActivity"
-            android:screenOrientation="portrait">>
+            android:screenOrientation="portrait">
             <intent-filter>
+
                 <action android:name="android.intent.action.GAMEOVER" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
