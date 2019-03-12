@@ -12,5 +12,5 @@ Tap the "?" icon at the upper right corner during the game for a summary of the 
 After each game, tap "Play Again" icon to start a new game.
 
 <pre>
-<img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesInitial.jpg" width="20%">   <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesInstructions.jpg" width="20%">   <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesMidgame.jpg" width="20%">   <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesMidgame2.jpg" width="20%">   <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesGameOver.jpg" width="20%">
+<img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesREADME/JacquesInitial.jpg" width="20%">   <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesREADME/JacquesInstructions.jpg" width="20%">   <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesREADME/JacquesMidgame.jpg" width="20%">   <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesREADME/JacquesMidgame2.jpg" width="20%">   <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesREADME/JacquesGameOver.jpg" width="20%">
 </pre>
