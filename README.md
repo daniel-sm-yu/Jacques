@@ -11,9 +11,6 @@ Ace is worth 11 until the score exceeds 21. Upon exceeding 21, the ace is worth 
 Tap the "?" icon at the upper right corner during the game for a summary of the rules and controls.
 After each game, tap "Play Again" icon to start a new game.
 
-<img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesInitial.jpg" width="25%">
-<img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesInstructions.jpg" width="25%">
-<img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesMidgame.jpg" width="25%">
-<img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesMidgame2.jpg" width="25%">
-<img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesGameOver.jpg" width="25%">
-
+<pre>
+<img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesInitial.jpg" width="20%">   <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesInstructions.jpg" width="20%">   <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesMidgame.jpg" width="20%">   <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesMidgame2.jpg" width="20%">   <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesGameOver.jpg" width="20%">
+</pre>
