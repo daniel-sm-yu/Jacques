@@ -15,5 +15,5 @@ After each game, tap "Play Again" icon to start a new game.
 <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesInstructions.jpg" width="25%">
 <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesMidgame.jpg" width="25%">
 <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesMidgame2.jpg" width="25%">
-<img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacauesGameOver.jpg" width="25%">
+<img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesGameOver.jpg" width="25%">
 
