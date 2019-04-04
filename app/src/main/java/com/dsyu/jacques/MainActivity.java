@@ -169,7 +169,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
     private void playerFullHand() {
         int playerCards = 0;
         for (int i = 0; i < 4; i++) {
@@ -182,10 +181,27 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void disablePlayerButtons() {
+        card1.setEnabled( false );
+        card2.setEnabled( false );
+        card3.setEnabled( false );
+        card4.setEnabled( false );
+        jacquesButton.setEnabled( false );
+    }
+
+    private void enablePlayerButtons() {
+        card1.setEnabled( true );
+        card2.setEnabled( true );
+        card3.setEnabled( true );
+        card4.setEnabled( true );
+        jacquesButton.setEnabled( true );
+    }
+
 // SMART CPU ALGORITHM -----------------------------------------------------------------------------
 
     // Gets CPU to take a turn
     private void cpuTakeTurn () {
+        disablePlayerButtons();
         playerFullHand();
         if (cpuCards != 4) {
             if (score.getCpuScoreInt() < score.getPlayerScoreInt()) {
@@ -220,6 +236,14 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         gameOverCheck();
+        // enables the card buttons after 1 second, prevents player from playing during CPU's turn
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                enablePlayerButtons();
+            }
+        }, 1000);
     }
 
     // Gets CPU to add a card to hand
@@ -229,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
-            public void run() {// selects a card not yet added to cpu hand
+            public void run() { // selects a card not yet added to cpu hand
                  int randomCpuCardNum = (int) (Math.random() * 4);
 
                  while (cpuHand[randomCpuCardNum]) {
