@@ -255,6 +255,7 @@ public class MainActivity extends AppCompatActivity {
             randomCpuCardNum = (int) Math.floor( Math.random() * 4);
         }
 
+        cpuHand[randomCpuCardNum] = true;
         randomCpuCardNum += 5;
 
         switch (randomCpuCardNum) {
@@ -264,7 +265,6 @@ public class MainActivity extends AppCompatActivity {
             case 8: card8.setImageResource( cardFace.getCardFace( cardValue.getValue(randomCpuCardNum) ) ); break;
         }
 
-        cpuHand[randomCpuCardNum - 5] = true;
         cpuScore.setText( score.addCpuScore( cardValue.getValue(randomCpuCardNum) ) );
         ace.setCpuAce( cardValue.getValue(randomCpuCardNum) );
         if (score.getCpuScoreInt() > maxNum) {
@@ -303,6 +303,7 @@ public class MainActivity extends AppCompatActivity {
     }
     // Used to navigate to the Game Over page
     private void gameOver() {
+        disablePlayerButtons();
         Handler handler = new Handler();
         handler.postDelayed( new Runnable() {
             @Override
@@ -314,6 +315,6 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra( "playerScore", playerScore );
                 startActivity( intent );
             }
-        }, 1500 );
+        }, 1250 );
     }
 }
