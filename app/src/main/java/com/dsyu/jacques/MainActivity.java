@@ -203,44 +203,43 @@ public class MainActivity extends AppCompatActivity {
     private void cpuTakeTurn () {
         disablePlayerButtons();
         playerFullHand();
-        if (cpuCards != 4) {
-            if (score.getCpuScoreInt() < score.getPlayerScoreInt()) {
-                cpuAddCard();
-            } else if (playerStand) {
-                cpuStand();
-            } else if (score.getCpuScoreInt() < 12) {
-                cpuAddCard();
-            } else if (score.getCpuScoreInt() < 14) {
-                if ((int) Math.floor( Math.random() ) * 5 != 0) {
-                    cpuAddCard();
-                }
-                else {
-                    cpuStand();
-                }
-            } else if (score.getCpuScoreInt() < 16) {
-                if ((int) Math.floor( Math.random() ) * 2 == 0) {
-                    cpuAddCard();
-                }
-                else {
-                    cpuStand();
-                }
-            } else if (score.getCpuScoreInt() < 18) {
-                if ((int) Math.floor( Math.random() ) * 4 == 0) {
-                    cpuAddCard();
-                } else {
-                    cpuStand();
-                }
-            }
-            else {
-                cpuStand();
-            }
-        }
-        gameOverCheck();
-        // enables the card buttons after 1 second, prevents player from playing during CPU's turn
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                if (cpuCards != 4) {
+                    if (score.getCpuScoreInt() < score.getPlayerScoreInt()) {
+                        cpuAddCard();
+                    } else if (playerStand) {
+                        cpuStand();
+                    } else if (score.getCpuScoreInt() < 12) {
+                        cpuAddCard();
+                    } else if (score.getCpuScoreInt() < 14) {
+                        if ((int) Math.floor( Math.random() ) * 5 != 0) {
+                            cpuAddCard();
+                        }
+                        else {
+                            cpuStand();
+                        }
+                    } else if (score.getCpuScoreInt() < 16) {
+                        if ((int) Math.floor( Math.random() ) * 2 == 0) {
+                            cpuAddCard();
+                        }
+                        else {
+                            cpuStand();
+                        }
+                    } else if (score.getCpuScoreInt() < 18) {
+                        if ((int) Math.floor( Math.random() ) * 4 == 0) {
+                            cpuAddCard();
+                        } else {
+                            cpuStand();
+                        }
+                    }
+                    else {
+                        cpuStand();
+                    }
+                }
+                gameOverCheck();
                 enablePlayerButtons();
             }
         }, 1000);
@@ -249,41 +248,31 @@ public class MainActivity extends AppCompatActivity {
     // Gets CPU to add a card to hand
     private void cpuAddCard(){
         cpuCards++;
-        // delays execution by a few seconds
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() { // selects a card not yet added to cpu hand
-                 int randomCpuCardNum = (int) (Math.random() * 4);
+        // selects a card not yet added to cpu hand
+        int randomCpuCardNum = (int) (Math.random() * 4);
 
-                 while (cpuHand[randomCpuCardNum]) {
-                     randomCpuCardNum = (int) Math.floor( Math.random() * 4);
-                 }
+        while (cpuHand[randomCpuCardNum]) {
+            randomCpuCardNum = (int) Math.floor( Math.random() * 4);
+        }
 
-                 randomCpuCardNum += 5;
+        randomCpuCardNum += 5;
 
-                 switch (randomCpuCardNum) {
-                     case 5:
-                         card5.setImageResource( cardFace.getCardFace( cardValue.getValue(randomCpuCardNum) ) ); break;
-                     case 6:
-                         card6.setImageResource( cardFace.getCardFace( cardValue.getValue(randomCpuCardNum) ) ); break;
-                     case 7:
-                         card7.setImageResource( cardFace.getCardFace( cardValue.getValue(randomCpuCardNum) ) ); break;
-                     case 8:
-                         card8.setImageResource( cardFace.getCardFace( cardValue.getValue(randomCpuCardNum) ) ); break;
-                 }
+        switch (randomCpuCardNum) {
+            case 5: card5.setImageResource( cardFace.getCardFace( cardValue.getValue(randomCpuCardNum) ) ); break;
+            case 6: card6.setImageResource( cardFace.getCardFace( cardValue.getValue(randomCpuCardNum) ) ); break;
+            case 7: card7.setImageResource( cardFace.getCardFace( cardValue.getValue(randomCpuCardNum) ) ); break;
+            case 8: card8.setImageResource( cardFace.getCardFace( cardValue.getValue(randomCpuCardNum) ) ); break;
+        }
 
-                 cpuHand[randomCpuCardNum - 5] = true;
-                 cpuScore.setText( score.addCpuScore( cardValue.getValue(randomCpuCardNum) ) );
-                 ace.setCpuAce( cardValue.getValue(randomCpuCardNum) );
-                 if (score.getCpuScoreInt() > maxNum) {
-                     if (score.cpuGameOver( ace.useCpuAce() ) && cpuCards != 4) {
-                             gameOver();
-                     }
-                     cpuScore.setText( score.getCpuScore() );
-                 }
+        cpuHand[randomCpuCardNum - 5] = true;
+        cpuScore.setText( score.addCpuScore( cardValue.getValue(randomCpuCardNum) ) );
+        ace.setCpuAce( cardValue.getValue(randomCpuCardNum) );
+        if (score.getCpuScoreInt() > maxNum) {
+            if (score.cpuGameOver( ace.useCpuAce() ) && cpuCards != 4) {
+                gameOver();
             }
-        }, 1000);
+            cpuScore.setText( score.getCpuScore() );
+        }
     }
 
     private void cpuStand() {
