@@ -1,6 +1,6 @@
 # Jacques
 You and the CPU take turns deciding between flipping a card or keeping their hand, starting with you. 
-Four cards are dealt to each side at the start of every game from a deck of only one suit, meaning there are no duplicated values.
+Four cards are dealt to each side at the start of every game from a deck of only one suit, meaning there are no duplicate numbers.
 To flip a card and add it to your hand, simply tap on a face down card.
 To keep your hand, tap the card at the center of the screen. Doing so will clear your side of all face down cards and you will not be able to add them to your hand on consequent turns.
 Highest score up to 21 wins.
@@ -11,9 +11,6 @@ Ace is worth 11 until the score exceeds 21. Upon exceeding 21, the ace is worth 
 Tap the "?" icon at the upper right corner during the game for a summary of the rules and controls.
 After each game, tap "Play Again" icon to start a new game.
 
-<img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesInitial.jpg" width="25%">
-<img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesInstructions.jpg" width="25%">
-<img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesMidgame.jpg" width="25%">
-<img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacquesMidgame2.jpg" width="25%">
-<img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesGamePhotos/JacauesGameOver.jpg" width="25%">
-
+<pre>
+<img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesREADME/JacquesInitial.jpg" width="20%">   <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesREADME/JacquesInstructions.jpg" width="20%">   <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesREADME/JacquesMidgame.jpg" width="20%">   <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesREADME/JacquesMidgame2.jpg" width="20%">   <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesREADME/JacquesGameOver.jpg" width="20%">
+</pre>
