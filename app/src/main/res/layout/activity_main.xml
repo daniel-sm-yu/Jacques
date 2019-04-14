@@ -161,7 +161,7 @@
         android:id="@+id/playerCardsLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="22dp"
         android:background="@color/red"
         android:gravity="center"
         android:orientation="horizontal"
