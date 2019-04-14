@@ -315,6 +315,6 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra( "playerScore", playerScore );
                 startActivity( intent );
             }
-        }, 1250 );
+        }, 750 );
     }
 }
