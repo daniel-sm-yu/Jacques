@@ -4,11 +4,9 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import static android.widget.Toast.makeText;
 import static java.lang.Thread.sleep;
@@ -59,20 +57,20 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 playerStand = true;
                 if (!playerHand[0]) {
-                    card1.setImageResource(R.drawable.black);
+                    card1.setImageResource(R.drawable.red );
                     playerHand[0] = true;
                 }
                 if (!playerHand[1]) {
-                    card2.setImageResource(R.drawable.black);
+                    card2.setImageResource(R.drawable.red );
                     playerHand[1] = true;
                 }
                 if (!playerHand[2]) {
-                    card3.setImageResource(R.drawable.black);
+                    card3.setImageResource(R.drawable.red );
                     playerHand[2] = true;
 
                 }
                 if (!playerHand[3]) {
-                    card4.setImageResource(R.drawable.black);
+                    card4.setImageResource(R.drawable.red );
                     playerHand[3] = true;
                 }
                 cpuTakeTurn();
@@ -278,19 +276,19 @@ public class MainActivity extends AppCompatActivity {
     private void cpuStand() {
         cpuCards = 4;
         if (!cpuHand[0]) {
-            card5.setImageResource(R.drawable.black);
+            card5.setImageResource(R.drawable.red );
             cpuHand[0] = true;
         }
         if (!cpuHand[1]) {
-            card6.setImageResource(R.drawable.black);
+            card6.setImageResource(R.drawable.red );
             cpuHand[1] = true;
         }
         if (!cpuHand[2]) {
-            card7.setImageResource(R.drawable.black);
+            card7.setImageResource(R.drawable.red );
             cpuHand[2] = true;
         }
         if (!cpuHand[3]) {
-            card8.setImageResource(R.drawable.black);
+            card8.setImageResource(R.drawable.red );
             cpuHand[3] = true;
         }
     }

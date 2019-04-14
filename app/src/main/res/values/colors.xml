@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#080808</color>
-    <color name="notiColor">#5F0000</color>
-    <color name="gray">#F1F1F1</color>
-    <color name="yellow">#FCE77D</color>
-    <color name="blue">#2B3252</color>
+    <color name="darkRed">#5F0000</color>
     <color name="red">#8F0414</color>
+    <color name="gray">#F1F1F1</color>
 </resources>
