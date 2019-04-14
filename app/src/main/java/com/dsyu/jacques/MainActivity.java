@@ -238,7 +238,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 gameOverCheck();
-                enablePlayerButtons();
             }
         }, 1000);
     }
@@ -298,10 +297,12 @@ public class MainActivity extends AppCompatActivity {
         if (playerStand && cpuCards == 4) {
             gameOver();
         }
+        else {
+            enablePlayerButtons();
+        }
     }
     // Used to navigate to the Game Over page
     private void gameOver() {
-        disablePlayerButtons();
         Handler handler = new Handler();
         handler.postDelayed( new Runnable() {
             @Override
