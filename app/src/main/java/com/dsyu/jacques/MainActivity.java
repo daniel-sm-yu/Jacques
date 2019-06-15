@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import static android.view.View.INVISIBLE;
 import static android.widget.Toast.makeText;
 import static java.lang.Thread.sleep;
 
@@ -57,20 +58,20 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 playerStand = true;
                 if (!playerHand[0]) {
-                    card1.setImageResource(R.drawable.red );
+                    card1.setVisibility( INVISIBLE );
                     playerHand[0] = true;
                 }
                 if (!playerHand[1]) {
-                    card2.setImageResource(R.drawable.red );
+                    card2.setVisibility( INVISIBLE );
                     playerHand[1] = true;
                 }
                 if (!playerHand[2]) {
-                    card3.setImageResource(R.drawable.red );
+                    card3.setVisibility( INVISIBLE );
                     playerHand[2] = true;
 
                 }
                 if (!playerHand[3]) {
-                    card4.setImageResource(R.drawable.red );
+                    card4.setVisibility( INVISIBLE );
                     playerHand[3] = true;
                 }
                 cpuTakeTurn();
@@ -275,19 +276,19 @@ public class MainActivity extends AppCompatActivity {
     private void cpuStand() {
         cpuCards = 4;
         if (!cpuHand[0]) {
-            card5.setImageResource(R.drawable.red );
+            card5.setVisibility( INVISIBLE );
             cpuHand[0] = true;
         }
         if (!cpuHand[1]) {
-            card6.setImageResource(R.drawable.red );
+            card6.setVisibility( INVISIBLE );
             cpuHand[1] = true;
         }
         if (!cpuHand[2]) {
-            card7.setImageResource(R.drawable.red );
+            card7.setVisibility( INVISIBLE );
             cpuHand[2] = true;
         }
         if (!cpuHand[3]) {
-            card8.setImageResource(R.drawable.red );
+            card8.setVisibility( INVISIBLE );
             cpuHand[3] = true;
         }
     }
