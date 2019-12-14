@@ -11,7 +11,7 @@ Ace is worth 11 until the score exceeds 21. Upon exceeding 21, the ace is worth 
 Tap the "?" icon at the upper right corner during the game for a summary of the rules and controls.
 After each game, tap "Play Again" icon to start a new game.
 
-The CPU makes decisions based on both player's score and the level of risk it's willing to take.
+The CPU makes decisions based on both players' score and the level of risk it's willing to take.
 
 <pre>
 <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesREADME/JacquesInitial.jpg" width="20%">   <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesREADME/JacquesInstructions.jpg" width="20%">   <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesREADME/JacquesMidgame.jpg" width="20%">   <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesREADME/JacquesMidgame2.jpg" width="20%">   <img src="https://github.com/daniel-sm-yu/Jacques/blob/master/JacquesREADME/JacquesGameOver.jpg" width="20%">
